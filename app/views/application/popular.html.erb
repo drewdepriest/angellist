@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AngelList Popular Startups: Chicago</title>
+ 
+</head>
+<body>
+
+<h2>From AngelList API:</h2>
+Most popular startups in Chicago right now:<br/><br/>
+
+<% i = 1 %>
+<% @response["startups"].each do |startup| %>
+  
+  <% if (startup["hidden"] == false) %>
+    <%= i %>.  <a href=<%= startup["angellist_url"] %> target=_new><%= startup["name"] %> </a>  has <%= startup["follower_count"] %> followers.
+    <br/>
+    <em><%= startup["product_desc"] %></em>
+    <br/><br/>
+    <% i = i + 1 %>
+  <% end %>  
+
+
+
+<% end %>
+
+
+</body>
+</html>
